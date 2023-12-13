@@ -17,8 +17,9 @@ class _AdminScreenState extends State<AdminScreen> {
     return Scaffold(
       drawer: const Drawer(),
       appBar: AppBar(
-        backgroundColor: Colors.white12,
-        elevation: 0,
+        backgroundColor: Colors.white,
+        shadowColor: Colors.grey,
+        elevation: 5,
         actions: [
           IconButton(
             icon: const Icon(Icons.settings),

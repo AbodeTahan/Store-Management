@@ -17,6 +17,7 @@ class _ProductState extends State<Product> {
         title: const Text("المنتجات"),
       ),
       body: Container(
+
         child: ListView(
           children: [
             Container(
@@ -66,8 +67,3 @@ class _ProductState extends State<Product> {
     );
   }
 }
-
-// CircleAvatar(
-// child: Text("Hi"),
-// radius: 15,
-// ),

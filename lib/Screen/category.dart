@@ -24,6 +24,30 @@ class _CategoryState extends State<Category> {
           style: TextStyle(
               fontSize: 20, fontFamily: 'fonts/Raleway-MediumItalic.ttf'),
         ),
+        actions: [
+          DropdownButton(
+            underline: Container(
+              height: 1,
+              color: Colors.black,
+            ),
+            hint: const Text("ترتيب حسب"),
+            items: [
+              "الاسم",
+              "الكمية",
+            ]
+                .map((e) => DropdownMenuItem(
+              value: e,
+              child: Text("$e"),
+            ))
+                .toList(),
+            onChanged: (val) {
+              setState(() {
+                selectedTypeReport = val!;
+              });
+            },
+            value: selectedTypeReport,
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -90,18 +114,14 @@ class _CategoryState extends State<Category> {
               child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Row(
-                    children: [
                       Padding(
-                          padding: EdgeInsets.only(right: 5),
-                          child: IconButton(
-                              onPressed: null, icon: Icon(Icons.sort))),
-                      Text(
-                        "الكمية",
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        padding: EdgeInsets.only(left: 45),
+                        child: Text(
+                          "الكمية",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
                       ),
-                    ],
-                  ),
+
                   Text(
                     "إسم الصنف",
                     style: TextStyle(fontWeight: FontWeight.bold),

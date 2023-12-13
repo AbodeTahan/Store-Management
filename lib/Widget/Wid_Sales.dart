@@ -12,7 +12,7 @@ class SalesWidget extends StatelessWidget {
         children: [
           Container(
             alignment: Alignment.center,
-            height: 150,
+            height: 100,
             decoration: BoxDecoration(
                 color: const Color(0xffeec407),
                 borderRadius: BorderRadius.circular(20)),
