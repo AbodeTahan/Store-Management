@@ -2,24 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:untitled/Widget/Wid_Sales.dart';
 import 'package:untitled/Widget/wid_Post.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class Product extends StatefulWidget {
+  const Product({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<Product> createState() => _ProductState();
 }
 
-class _HomePageState extends State<HomePage> {
-
+class _ProductState extends State<Product> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("المنتجات"),
+      ),
       body: Container(
         child: ListView(
           children: [
             Container(
-              margin:  const EdgeInsets.only(top: 10),
-              padding:  const EdgeInsets.symmetric(horizontal: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Row(
                 children: [
                   Expanded(
@@ -33,7 +34,7 @@ class _HomePageState extends State<HomePage> {
                         filled: true,
                         fillColor: Colors.grey[200]),
                   )),
-                   const SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Container(
@@ -41,7 +42,7 @@ class _HomePageState extends State<HomePage> {
                         color: Colors.grey[200],
                         borderRadius: BorderRadius.circular(10)),
                     width: 50,
-                    padding:  const EdgeInsets.symmetric(vertical: 8),
+                    padding: const EdgeInsets.symmetric(vertical: 8),
                     child: IconButton(
                       onPressed: () {},
                       icon: Icon(
@@ -54,11 +55,11 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-             const SalesWidget(),
-             const Post(),
-             const Post(),
-             const Post(),
-             const Post(),
+            const SalesWidget(),
+            const Post(),
+            const Post(),
+            const Post(),
+            const Post(),
           ],
         ),
       ),

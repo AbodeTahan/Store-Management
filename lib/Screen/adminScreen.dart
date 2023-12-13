@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/Screen/category.dart';
+import 'package:untitled/Screen/product.dart';
 import 'package:untitled/Screen/setting.dart';
 
 class AdminScreen extends StatefulWidget {
@@ -35,54 +36,74 @@ class _AdminScreenState extends State<AdminScreen> {
         centerTitle: true,
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 35),
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 35),
         child: ListView(
           children: [
             Column(
               children: [
+                InkWell(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context){return const Product();}));
+                  },
+                  child: Container(
+                      alignment: Alignment.center,
+                      height: 40,
+                      width: 80,
+                      decoration: BoxDecoration(
+                          color: Colors.white70,
+                          borderRadius: BorderRadius.circular(15),
+                          boxShadow: const [
+                            BoxShadow(
+                                color: Colors.grey,
+                                spreadRadius: 2,
+                                blurRadius: 10,
+                                offset: Offset(4, 4))
+                          ]),
+                      child: const Text("المنتجات")),
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     InkWell(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => Category()));
+                            builder: (context) => const Category()));
                       },
                       child: Container(
-                          margin: EdgeInsets.only(bottom: 10),
+                          margin: const EdgeInsets.only(bottom: 10),
                           alignment: Alignment.center,
-                          height: 60,
-                          width: 100,
+                          height: 40,
+                          width: 80,
                           decoration: BoxDecoration(
                               color: Colors.white70,
                               borderRadius: BorderRadius.circular(15),
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(
                                     color: Colors.grey,
                                     spreadRadius: 2,
                                     blurRadius: 10,
                                     offset: Offset(4, 4))
                               ]),
-                          child: Text("الأصناف")),
+                          child: const Text("الأصناف")),
                     ),
                     InkWell(
                       onTap: () {},
                       child: Container(
-                          margin: EdgeInsets.only(bottom: 10),
+                          margin: const EdgeInsets.only(bottom: 10),
                           alignment: Alignment.center,
-                          height: 60,
-                          width: 100,
+                          height: 40,
+                          width: 80,
                           decoration: BoxDecoration(
                               color: Colors.white70,
                               borderRadius: BorderRadius.circular(15),
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(
                                     color: Colors.grey,
                                     spreadRadius: 2,
                                     blurRadius: 10,
                                     offset: Offset(4, 4))
                               ]),
-                          child: Text("التقارير")),
+                          child: const Text("التقارير")),
                     ),
                   ],
                 ),
@@ -93,43 +114,43 @@ class _AdminScreenState extends State<AdminScreen> {
                       onTap: () {},
                       child: Container(
                           alignment: Alignment.center,
-                          height: 60,
-                          width: 100,
+                          height: 40,
+                          width: 80,
                           decoration: BoxDecoration(
                               color: Colors.white70,
                               borderRadius: BorderRadius.circular(15),
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(
                                     color: Colors.grey,
                                     spreadRadius: 2,
                                     blurRadius: 10,
                                     offset: Offset(4, 4))
                               ]),
-                          child: Text("الموظفين")),
+                          child: const Text("الموظفين")),
                     ),
                     InkWell(
                       onTap: () {},
                       child: Container(
                           alignment: Alignment.center,
-                          height: 60,
-                          width: 100,
+                          height: 40,
+                          width: 80,
                           decoration: BoxDecoration(
                               color: Colors.white70,
                               borderRadius: BorderRadius.circular(15),
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(
                                     color: Colors.grey,
                                     spreadRadius: 2,
                                     blurRadius: 10,
                                     offset: Offset(4, 4))
                               ]),
-                          child: Text("الكاشير")),
+                          child: const Text("الكاشير")),
                     ),
                   ],
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Row(
@@ -140,15 +161,15 @@ class _AdminScreenState extends State<AdminScreen> {
                     height: 1,
                     color: Colors.black,
                   ),
-                  hint: Text("نوع التقرير"),
+                  hint: const Text("نوع التقرير"),
                   items: [
                     "يومي",
                     "اسبوعي",
                     "شهري",
                   ]
                       .map((e) => DropdownMenuItem(
-                            child: Text("$e"),
                             value: e,
+                            child: Text("$e"),
                           ))
                       .toList(),
                   onChanged: (val) {
@@ -171,7 +192,7 @@ class _AdminScreenState extends State<AdminScreen> {
               ],
             ),
             Container(
-              margin: EdgeInsets.symmetric(vertical: 20),
+              margin: const EdgeInsets.symmetric(vertical: 20),
               decoration: BoxDecoration(
                   color: Colors.white70,
                   borderRadius: BorderRadius.circular(15),
@@ -205,15 +226,15 @@ class _AdminScreenState extends State<AdminScreen> {
             ),
             MaterialButton(
               onPressed: () {},
-              child: Text(
-                "حفظ",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
               splashColor: Colors.grey,
               color: Colors.blueGrey[200],
               elevation: 10,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)),
+              child: const Text(
+                "حفظ",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
             ),
           ],
         ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/Screen/homePage.dart';
+import 'package:untitled/Screen/adminScreen.dart';
 import 'package:untitled/Widget/customtextform.dart';
 
 class LogIn extends StatelessWidget {
@@ -72,7 +72,7 @@ class LogIn extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   onPressed: () {
                     Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => HomePage()));
+                        MaterialPageRoute(builder: (context) => const AdminScreen()));
                   },
                   textColor: Colors.black,
                   color: Colors.orange,

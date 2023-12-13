@@ -7,7 +7,7 @@ class SalesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       child: Stack(
         children: [
           Container(
