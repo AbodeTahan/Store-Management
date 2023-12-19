@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/Screen/Employ.dart';
+import 'package:untitled/Screen/casher.dart';
 import 'package:untitled/Screen/category.dart';
 import 'package:untitled/Screen/product.dart';
 import 'package:untitled/Screen/setting.dart';
+import 'package:untitled/Screen/Report.dart';
+import 'package:untitled/Widget/AlignAdmin.dart';
+import 'package:untitled/Widget/searchWidget.dart';
 
 class AdminScreen extends StatefulWidget {
   const AdminScreen({Key? key}) : super(key: key);
@@ -10,236 +15,97 @@ class AdminScreen extends StatefulWidget {
   State<AdminScreen> createState() => _AdminScreenState();
 }
 
+List<Widget> Screen = const[
+   Product(),
+   Report(),
+   Casher(),
+   Category(),
+   Employ(),
+];
+
 class _AdminScreenState extends State<AdminScreen> {
-  var selectedTypeReport;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const Drawer(),
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        shadowColor: Colors.grey,
-        elevation: 5,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const Setting()));
-            },
-          ),
-        ],
-        title: const Text(
-          "AdminPage",
-          style: TextStyle(
-              fontSize: 20, fontFamily: 'fonts/Raleway-MediumItalic.ttf'),
-        ),
-        centerTitle: true,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.add),
       ),
       body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 35),
-        child: ListView(
-          children: [
-            Column(
-              children: [
-                InkWell(
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context){return const Product();}));
-                  },
-                  child: Container(
-                      alignment: Alignment.center,
-                      height: 40,
-                      width: 80,
-                      decoration: BoxDecoration(
-                          color: Colors.white70,
-                          borderRadius: BorderRadius.circular(15),
-                          boxShadow: const [
-                            BoxShadow(
-                                color: Colors.grey,
-                                spreadRadius: 2,
-                                blurRadius: 10,
-                                offset: Offset(4, 4))
-                          ]),
-                      child: const Text("المنتجات")),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const Category()));
-                      },
-                      child: Container(
-                          margin: const EdgeInsets.only(bottom: 10),
-                          alignment: Alignment.center,
-                          height: 40,
-                          width: 80,
-                          decoration: BoxDecoration(
-                              color: Colors.white70,
-                              borderRadius: BorderRadius.circular(15),
-                              boxShadow: const [
-                                BoxShadow(
-                                    color: Colors.grey,
-                                    spreadRadius: 2,
-                                    blurRadius: 10,
-                                    offset: Offset(4, 4))
-                              ]),
-                          child: const Text("الأصناف")),
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          child: Stack(
+            children: [
+              Stack(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.only(
+                        top: 20, left: 15, right: 15, bottom: 10),
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height / 3.32,
+                    decoration: const BoxDecoration(
+                      color: Colors.orange,
+                      borderRadius:
+                          BorderRadius.only(bottomRight: Radius.circular(80)),
                     ),
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                          margin: const EdgeInsets.only(bottom: 10),
-                          alignment: Alignment.center,
-                          height: 40,
-                          width: 80,
-                          decoration: BoxDecoration(
-                              color: Colors.white70,
-                              borderRadius: BorderRadius.circular(15),
-                              boxShadow: const [
-                                BoxShadow(
-                                    color: Colors.grey,
-                                    spreadRadius: 2,
-                                    blurRadius: 10,
-                                    offset: Offset(4, 4))
-                              ]),
-                          child: const Text("التقارير")),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const Setting()));
+                          },
+                          icon: const Icon(
+                            Icons.settings,
+                            color: Colors.white70,
+                            size: 30,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        const Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Dashboard",
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w500),
+                            ),
+                            SizedBox(
+                              height: 1,
+                            ),
+                            Text(
+                              "Admin",
+                              style: TextStyle(
+                                  fontSize: 10,
+                                  color: Colors.white54,
+                                  letterSpacing: 1),
+                            ),
+                          ],
+                        ),
+                        const SearchWidget(),
+                      ],
                     ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                          alignment: Alignment.center,
-                          height: 40,
-                          width: 80,
-                          decoration: BoxDecoration(
-                              color: Colors.white70,
-                              borderRadius: BorderRadius.circular(15),
-                              boxShadow: const [
-                                BoxShadow(
-                                    color: Colors.grey,
-                                    spreadRadius: 2,
-                                    blurRadius: 10,
-                                    offset: Offset(4, 4))
-                              ]),
-                          child: const Text("الموظفين")),
-                    ),
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                          alignment: Alignment.center,
-                          height: 40,
-                          width: 80,
-                          decoration: BoxDecoration(
-                              color: Colors.white70,
-                              borderRadius: BorderRadius.circular(15),
-                              boxShadow: const [
-                                BoxShadow(
-                                    color: Colors.grey,
-                                    spreadRadius: 2,
-                                    blurRadius: 10,
-                                    offset: Offset(4, 4))
-                              ]),
-                          child: const Text("الكاشير")),
-                    ),
-                  ],
-                )
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                DropdownButton(
-                  underline: Container(
-                    height: 1,
-                    color: Colors.black,
+                  )
+                ],
+              ),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height / 1.431,
+                  decoration: const BoxDecoration(
+                    color: Colors.orange,
                   ),
-                  hint: const Text("نوع التقرير"),
-                  items: [
-                    "يومي",
-                    "اسبوعي",
-                    "شهري",
-                  ]
-                      .map((e) => DropdownMenuItem(
-                            value: e,
-                            child: Text("$e"),
-                          ))
-                      .toList(),
-                  onChanged: (val) {
-                    setState(() {
-                      selectedTypeReport = val!;
-                    });
-                  },
-                  value: selectedTypeReport,
                 ),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text(
-                      "التقرير *",
-                      style: TextStyle(fontSize: 18),
-                    ),
-                    Icon(Icons.book_outlined)
-                  ],
-                ),
-              ],
-            ),
-            Container(
-              margin: const EdgeInsets.symmetric(vertical: 20),
-              decoration: BoxDecoration(
-                  color: Colors.white70,
-                  borderRadius: BorderRadius.circular(15),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.grey,
-                      spreadRadius: 1,
-                      blurRadius: 5,
-                    )
-                  ]),
-              child: TextFormField(
-                textAlign: TextAlign.end,
-                textInputAction: TextInputAction.next,
-                maxLines: 10,
-                cursorColor: Colors.black,
-                decoration: InputDecoration(
-                    hintText: "...أكتب التقرير هنا",
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: Colors.grey)),
-                    hintStyle: const TextStyle(
-                      fontSize: 12,
-                    ),
-                    floatingLabelBehavior: FloatingLabelBehavior.always,
-                    contentPadding: const EdgeInsets.symmetric(
-                        vertical: 10, horizontal: 30),
-                    border: OutlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.black),
-                        borderRadius: BorderRadius.circular(10))),
               ),
-            ),
-            MaterialButton(
-              onPressed: () {},
-              splashColor: Colors.grey,
-              color: Colors.blueGrey[200],
-              elevation: 10,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              child: const Text(
-                "حفظ",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-            ),
-          ],
-        ),
-      ),
+               const AlignAdmin(),
+            ],
+          )),
     );
   }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/Screen/adminScreen.dart';
-
+import 'package:untitled/Screen/logIn.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,10 +30,10 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),
         useMaterial3: true,
       ),
-      home:  AdminScreen(),
+      home: const LogIn(),
     );
   }
 }

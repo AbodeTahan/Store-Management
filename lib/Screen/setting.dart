@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/Screen/logIn.dart';
 
 class Setting extends StatefulWidget {
   const Setting({Key? key}) : super(key: key);
@@ -8,33 +9,12 @@ class Setting extends StatefulWidget {
 }
 
 class _SettingsState extends State<Setting> {
-  // late bool val1 = false;
-  // late bool val2 = true;
-  // late bool val3 = false;
-
-  // onChangeFunction1(bool newvalue1) {
-  //   setState(() {
-  //     val1 = newvalue1;
-  //   });
-  // }
-  //
-  // onChangeFunction2(bool newvalue2) {
-  //   setState(() {
-  //     val2 = newvalue2;
-  //   });
-  // }
-  //
-  // onChangeFunction3(bool newvalue3) {
-  //   setState(() {
-  //     val3 = newvalue3;
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
+        title: const Center(
           child: Text(
             "الإعدادت",
             style: TextStyle(fontFamily: "Mirza", fontSize: 30, height: 8),
@@ -42,17 +22,17 @@ class _SettingsState extends State<Setting> {
         ),
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         child: ListView(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Row(
+            const Row(
               children: [
                 Icon(
                   Icons.person,
-                  color: Colors.blue,
+                  color: Colors.grey,
                 ),
                 SizedBox(
                   width: 10,
@@ -63,38 +43,17 @@ class _SettingsState extends State<Setting> {
                 ),
               ],
             ),
-            Divider(
+            const Divider(
               height: 20,
               thickness: 2,
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 8, horizontal: 9),
+              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 9),
               child: Column(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "تسجيل دخول",
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.grey[600]),
-                      ),
-                      IconButton(
-                          alignment: Alignment.centerLeft,
-                          onPressed: () {
-
-                          },
-                          icon: Icon(
-                            Icons.arrow_forward_ios,
-                            color: Colors.grey,
-                          )),
-                    ],
-                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -110,9 +69,9 @@ class _SettingsState extends State<Setting> {
                           onPressed: () {
 
                           },
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.arrow_forward_ios,
-                            color: Colors.grey,
+                            color: Colors.orange,
                           )),
                     ],
                   )
@@ -120,14 +79,14 @@ class _SettingsState extends State<Setting> {
               ),
             ),
             buildAccount(context, "تغير كلمة المرور"),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Row(
+            const Row(
               children: [
                 Icon(
                   Icons.settings,
-                  color: Colors.blue,
+                  color: Colors.orange,
                 ),
                 SizedBox(
                   width: 10,
@@ -141,12 +100,12 @@ class _SettingsState extends State<Setting> {
                 ),
               ],
             ),
-            Divider(
+            const Divider(
               height: 20,
               thickness: 2,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -160,7 +119,7 @@ class _SettingsState extends State<Setting> {
                   IconButton(
                       alignment: Alignment.centerLeft,
                       onPressed: () {},
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.arrow_forward_ios,
                         color: Colors.grey,
                       ))
@@ -168,7 +127,7 @@ class _SettingsState extends State<Setting> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -184,7 +143,7 @@ class _SettingsState extends State<Setting> {
                       onPressed: () {
 
                       },
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.arrow_forward_ios,
                         color: Colors.grey,
                       ))
@@ -192,7 +151,7 @@ class _SettingsState extends State<Setting> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -208,7 +167,7 @@ class _SettingsState extends State<Setting> {
                       onPressed: () {
 
                       },
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.arrow_forward_ios,
                         color: Colors.grey,
                       ))
@@ -216,10 +175,10 @@ class _SettingsState extends State<Setting> {
               ),
             ),
 
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
-            Row(
+            const Row(
               // mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 SizedBox(
@@ -230,11 +189,13 @@ class _SettingsState extends State<Setting> {
             Center(
               child: OutlinedButton(
                 style: OutlinedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(horizontal: 40),
+                    padding: const EdgeInsets.symmetric(horizontal: 40),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20))),
-                onPressed: () {},
-                child: Text("تسجيل خروج"),
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=> const LogIn()));
+                },
+                child: const Text("تسجيل خروج"),
               ),
             ),
 
@@ -263,13 +224,13 @@ class _SettingsState extends State<Setting> {
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                           floatingLabelBehavior: FloatingLabelBehavior.always,
-                          contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                          contentPadding: const EdgeInsets.symmetric(horizontal: 8),
                           hintText: "كلمة المرور القديمة",
-                          helperStyle: TextStyle(fontSize: 3),
+                          helperStyle: const TextStyle(fontSize: 3),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10))),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     TextFormField(
@@ -278,13 +239,13 @@ class _SettingsState extends State<Setting> {
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                           floatingLabelBehavior: FloatingLabelBehavior.always,
-                          contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                          contentPadding: const EdgeInsets.symmetric(horizontal: 10),
                           hintText: "كلمة المرور الجديدة",
-                          helperStyle: TextStyle(fontSize: 3),
+                          helperStyle: const TextStyle(fontSize: 3),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10))),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     TextFormField(
@@ -293,18 +254,18 @@ class _SettingsState extends State<Setting> {
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                           floatingLabelBehavior: FloatingLabelBehavior.always,
-                          contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                          contentPadding: const EdgeInsets.symmetric(horizontal: 10),
                           hintText: "تأكيد كلمة المرور",
-                          helperStyle: TextStyle(fontSize: 3),
+                          helperStyle: const TextStyle(fontSize: 3),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10))),
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(vertical: 10),
+                      padding: const EdgeInsets.symmetric(vertical: 10),
                       child: InkWell(
                         onTap: () {
                         },
-                        child: Text(
+                        child: const Text(
                           "نسيت كلمة السر؟",
                           style: TextStyle(color: Colors.blue),
                         ),
@@ -314,7 +275,7 @@ class _SettingsState extends State<Setting> {
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
-                      child: Text("حفظ"),
+                      child: const Text("حفظ"),
                     )
                   ],
                 ),
@@ -322,7 +283,7 @@ class _SettingsState extends State<Setting> {
             });
       },
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 8, horizontal: 13),
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 13),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -333,7 +294,7 @@ class _SettingsState extends State<Setting> {
                   fontWeight: FontWeight.w500,
                   color: Colors.grey[600]),
             ),
-            Icon(
+            const Icon(
               Icons.arrow_forward_ios,
               color: Colors.grey,
             ),
